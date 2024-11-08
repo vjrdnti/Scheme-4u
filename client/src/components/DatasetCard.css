@@ -1,0 +1,12 @@
+.dataset-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dataset-card:hover {
+    background-color: #f0f0f0;
+}
+
