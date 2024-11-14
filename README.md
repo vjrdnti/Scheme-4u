@@ -39,7 +39,7 @@ Run the application (in /client):
 **Usage**
 
 Access the application at http://localhost:3000.
-Use the landing page to predict on your own data, placed in server/data/. form can be readjusted accordingly, admin dashboard to upload and manage scheme data .
+Use the landing page to predict on your own data, placed in server/data/. form can be modified accordingly, admin dashboard to upload and manage scheme data .
 
 **Contributing**
 Contributions are welcome! Please fork the repository and submit a pull request.
