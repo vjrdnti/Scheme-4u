@@ -46,7 +46,7 @@ const getDropdownData = async (req, res) => {
 // ENDPOINT 2
 const furtherCounselling = async (req, res) => {
   const { phone, mailOption } = req.body;
-  console.log( phone );
+  //console.log( phone );
   try {
 
     const userForm = await UserForm.findOne({ phone });
@@ -54,10 +54,10 @@ const furtherCounselling = async (req, res) => {
     if (userForm) {
 
     const personalEmail = process.env.PERSONAL_EMAIL;  // Your personal email
-    const userData = JSON.stringify(userForm, null, 2);  // Pretty print user data
+    const userData = JSON.stringify(userForm, null, 2); 
 
-    await sendEmail(personalEmail, 'Further Counselling', `Test 2 complete:\n\n${userData}`);
-    await sendEmail(userForm.email, 'Further Counselling', `Test 2 complete:\n\n${userData}`);
+    await sendEmail(personalEmail, 'Further Counselling booking', `${JSON.stringify(userData)}`);
+    await sendEmail(userForm.email, 'Your session is booked', `${JSON.stringify(userData)}`);
 
     res.status(200).json({ message: 'Email sent successfully', userForm });
     }
@@ -154,7 +154,7 @@ const submitFirstTimeForm = async (req, res) => {
 		
 		// mail if mailoption is true
     if (mailoption===true) {
-      await sendEmail(email, 'Form Submission', `${JSON.stringify(prediction)}`);
+      await sendEmail(email, 'Your schemes', `${JSON.stringify(prediction)}`);
     }
     
     res.status(exists ? 202 : 201).json({ schemes:`${JSON.stringify(prediction)}` });
@@ -183,7 +183,7 @@ const submitSecondTimeForm = async (req, res) => {
 	
     // Send email if mailoption is true
     if (mailoption) {
-      await sendEmail(exists.email, 'Form Submission', `${JSON.stringify(userData['prediction'])}`);
+      await sendEmail(exists.email, 'Your Schemes', `${JSON.stringify(userData['prediction'])}`);
     }
     
     
